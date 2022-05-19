@@ -5,44 +5,42 @@ Summary: Shortcut to manage logs from Django Admin
 Home-page: https://github.com/tms-software/django-log
 Author: Franck COUTOULY
 Author-email: franck.coutouly@tms-software.ch
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6, <4
 Description-Content-Type: text/markdown
 
-# Django API Version
+# Django Log Shortcut
 
-Simple api endpoint to display version from config
+Install the package
 
-Create a `version.py` file containing the `VERSION` variable besides your `settings.py`
-
-```python
-VERSION='0.0.1'
-#You can also use an environment variable with the following
-import os
-VERSION=os.getenv('MY_VERSION', 'unknown')
+```bash
+pip install tms_django_log
 ```
 
-Then import the version in your `settings.py`
+Add the application in the `INSTALLE_APPS`:
 
 ```python
-from <project>.version import VERSION
+INSTALLED_APPS = [
+    ...
+    'django.contrib.admin',
+    'django.contrib.contenttypes',
+    'tms_django_log',
+    ...
+]
 ```
 
-And finally add the views in your urls
+Apply migrations
 
 ```python
-path(
-    "version/",
-    version_views.VersionView.as_view(),
-    name="version",
-)
+python manage.py migrate
 ```
 
-Then the version will be return on the corresponding endpoint.
+Then use the shortcut
+```python
+from tms_django_log.models import add_log
 
-
+add_log("Something happened", detail="More details here", level=3)
+```
 
