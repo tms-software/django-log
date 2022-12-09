@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tms-django-log
-Version: 1.0.0
+Version: 1.0.1
 Summary: Shortcut to manage logs from Django Admin
 Home-page: https://github.com/tms-software/django-log
 Author: Franck COUTOULY

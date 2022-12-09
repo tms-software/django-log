@@ -28,6 +28,8 @@ def add_log(message, detail=None, level=1):
     log, created = Log.objects.get_or_create(message=message)
     if created:
         log.count = 0
+    else:
+        log.count += 1
     log.traceback = traceback.format_exc()
     log.detail = detail
     log.level = level
