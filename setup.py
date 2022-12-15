@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="tms-django-log",
-    version="1.0.1",
+    version="1.0.2",
     url="https://github.com/tms-software/django-log",
     author="Franck COUTOULY",
     author_email="franck.coutouly@tms-software.ch",
